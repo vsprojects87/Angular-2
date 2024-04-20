@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { User } from './User';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,28 @@ import { FormsModule, FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'AngIntro2';
+
+  user = new User();
+
+  constructor() {   
+  }
+
+  onFormSubmit(form:NgForm){
+    if(form.invalid){
+      return;
+    }
+
+    console.log('User Name :' + form.controls['uname'].value);
+    console.log('Gender :' + form.controls['gender'].value);
+    console.log('Married :' + form.controls['married'].value);
+    console.log('T&C :' + form.controls['tc'].value);
+
+  }
+  reset(form: NgForm){
+    this.user = new User();
+    form.resetForm({
+      married:false
+    });
+  }
+
 }
