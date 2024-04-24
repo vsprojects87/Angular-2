@@ -1,0 +1,31 @@
+
+<div class="container">
+    <h5 class="mb-5">reactive-form works!</h5>
+    
+        <div class="form-area">
+            <form [formGroup]="form">
+                <div class="form-group mb-3">
+                    <label for="fullname">Enter Name</label>
+                    <input type="text" name="fullname" formControlName="fullname" class="form-control">
+                    <div class="alert alert-danger" *ngIf="form.get('fullname').touched&&form.get('fullname').invalid">
+                        <div *ngIf="form.get('fullname').errors?.required">Fullname is required</div>
+                        <!-- when we use formgroup we need to get the instance of formgroup that why we write form.get('fullname').touched instead fullname.touched  -->
+                        <div *ngIf="form.get('fullname').errors?.minLength">minimum 5 letters</div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Enter Email</label>
+                    <input type="email" name="email" formControlName="email"  class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Enter Address</label>
+                    <textarea cols="30" rows="5" name="address" formControlName="address" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-outline-info mb-5" [disabled]="form.invalid" (click)="postdata()">Submit</button>
+                <button type="submit" class="btn btn-outline-dark mb-5" (click)="resetform()">Reset</button>
+                <button type="submit" class="btn btn-outline-dark mb-5" (click)="fillform()">Fill</button>
+            </form>
+        </div>
+    
+    </div>

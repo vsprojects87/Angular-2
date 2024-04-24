@@ -12,25 +12,38 @@ export class AppComponent {
 
   user = new User();
 
-  constructor() {   
+  constructor() { 
+    localStorage.setItem('isLoggedin','false')  
   }
 
-  onFormSubmit(form:NgForm){
-    if(form.invalid){
-      return;
-    }
+  // 1]...
+  // onFormSubmit(form:NgForm){
+  //   if(form.invalid){
+  //     return;
+  //   }
 
-    console.log('User Name :' + form.controls['uname'].value);
-    console.log('Gender :' + form.controls['gender'].value);
-    console.log('Married :' + form.controls['married'].value);
-    console.log('T&C :' + form.controls['tc'].value);
+  //   console.log('User Name :' + form.controls['uname'].value);
+  //   console.log('Gender :' + form.controls['gender'].value);
+  //   console.log('Married :' + form.controls['married'].value);
+  //   console.log('T&C :' + form.controls['tc'].value);
 
-  }
-  reset(form: NgForm){
-    this.user = new User();
-    form.resetForm({
-      married:false
-    });
-  }
+  // }
+  // reset(form: NgForm){
+  //   this.user = new User();
+  //   form.resetForm({
+  //     married:false
+  //   });
+  // }
 
 }
+
+
+
+/* types of guards :
+
+canActivate
+canActivateChild
+canDeactivate
+Resolve
+canload
+*/

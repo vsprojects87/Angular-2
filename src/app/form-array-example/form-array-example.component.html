@@ -1,0 +1,16 @@
+<p>form-array-example works!</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div formArrayName="contacts">
+        <div *ngFor="let contact of form.controls.contacts.controls; index as i">
+        
+            <input [formControlName]="i" placeholder="contact no">
+
+        </div>
+    </div>
+<button class="mb-2 mt-2">Submit</button>
+</form>
+
+<button (click)="addContact()">Add New Contact</button>
+<button (click)="setPreset()">Set Preset</button>

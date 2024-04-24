@@ -1,0 +1,40 @@
+<div class="container">
+<p>add new rows dynamically in angular forms</p>
+
+<form novalidate [formGroup]="FG">
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <div style="margin-top: 0px;" formGroupName="itemRows">
+                <div class="row panel-heading text-bold" style="text-align: left;margin-top: 0px;margin-left: 10px;">
+                    Form Details
+                </div>
+                <ng-container *ngIf="FG.controls.itemRows!=null">
+                    <div *ngFor="let itemrow of FG.controls.itemRows.controls;let i=index" [formGroupName]="i">
+                    <div class="row">
+                        <div class="col-md-2 form-group">
+                            <input matInput placeholder="name" formControlName="name">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <input matInput placeholder="roll" formControlName="roll">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <input matInput placeholder="class" formControlName="class">
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <input matInput placeholder="mob" formControlName="mob">
+                        </div>
+                        <div class="col-md-2 form-group" style="margin-left: 35px;">
+                            <button (click)="deleteRow(i)" class="btn btn-danger" style="height: 30px;padding-top: 3px;">X</button>
+                        </div>
+                    </div>
+                    </div>
+                </ng-container>
+                <div class="form-group" style="text-align: right;">
+                <button type="button" (click)="addNewRow()" [disabled]="FG.invalid" class="btn btn-primary">Add New Row</button></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+</div>

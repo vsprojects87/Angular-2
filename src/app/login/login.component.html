@@ -1,0 +1,22 @@
+<h5>login</h5>
+<div class="mt-3"></div>
+
+<table border="1">
+<tr>
+    <td>User Id</td>
+    <td>
+        <input type="text" #userid>
+    </td>
+</tr>
+<tr>
+    <td>Password</td>
+    <td>
+        <input type="text" #password>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <button (click)="login(userid.value,password.value)">Login</button>
+    </td>
+</tr>
+</table>
